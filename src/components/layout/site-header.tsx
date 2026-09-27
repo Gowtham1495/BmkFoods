@@ -7,46 +7,51 @@ export default async function SiteHeader() {
   const brand = await getBrand();
 
   return (
-    <header className="sticky top-0 z-50 overflow-visible bg-white/95 backdrop-blur-md shadow-[0_1px_0_0_rgba(0,0,0,0.06)]">
-      <div className="relative mx-auto flex h-[54px] max-w-7xl items-center justify-between gap-3 px-3 sm:px-6 lg:px-8">
-        <Link href="/" className="pointer-events-auto relative z-20 flex items-center justify-center overflow-visible md:absolute md:left-3 md:top-0 lg:left-6">
-          <img
-            src={withBasePath("/final-bmk-logo.png")}
-            alt={brand.brandName}
-            className="h-[52px] w-auto max-w-[150px] object-contain object-left sm:h-[62px] sm:max-w-[180px] md:h-[110px] md:max-w-[360px] lg:h-[125px] lg:max-w-[390px]"
-          />
-        </Link>
-
-        <nav className="hidden items-center gap-7 md:ml-[150px] md:flex lg:ml-[220px]">
-          {[
-            { href: "/", label: "Home" },
-            { href: "/about", label: "About Us" },
-            { href: "/products", label: "Products" },
-            { href: "/contact", label: "Contact Us" },
-          ].map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="border-b-2 border-transparent pb-0.5 text-sm font-medium text-[#2C2C2C] transition-colors duration-300 hover:border-[#D42B2B] hover:text-[#D42B2B]"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
-
-        <div className="hidden items-center md:flex">
-          <a
-            href={brand.whatsappUrl || "#"}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center justify-center rounded-full bg-[#D42B2B] px-6 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#B01F1F] hover:shadow-lg hover:shadow-red-500/25"
+    <>
+      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-[0_1px_0_0_rgba(0,0,0,0.06)]">
+        <div className="relative mx-auto flex h-[58px] max-w-7xl items-center justify-center px-3 sm:px-6 md:h-[54px] md:justify-between md:px-8">
+          <Link
+            href="/"
+            className="mobile-header-logo pointer-events-auto relative z-20 flex items-center justify-center md:absolute md:left-3 md:top-0 md:justify-start lg:left-6"
           >
-            Order Now
-          </a>
-        </div>
-      </div>
+            <img
+              src={withBasePath("/final-bmk-logo.png")}
+              alt={brand.brandName}
+              className="h-[44px] w-auto max-w-[150px] object-contain opacity-100 sm:h-[52px] md:h-[110px] md:max-w-[360px] lg:h-[125px] lg:max-w-[390px]"
+            />
+          </Link>
 
-      <nav className="fixed inset-x-0 bottom-0 z-50 h-20 border-t border-[#F0E8E0] bg-white/95 pb-[max(env(safe-area-inset-bottom),0.75rem)] shadow-[0_-1px_10px_rgba(0,0,0,0.04)] md:hidden">
+          <nav className="desktop-header-nav hidden items-center gap-7 md:flex md:ml-[150px] lg:ml-[220px]">
+            {[
+              { href: "/", label: "Home" },
+              { href: "/about", label: "About Us" },
+              { href: "/products", label: "Products" },
+              { href: "/contact", label: "Contact Us" },
+            ].map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="border-b-2 border-transparent pb-0.5 text-sm font-medium text-[#2C2C2C] transition-colors duration-300 hover:border-[#D42B2B] hover:text-[#D42B2B]"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="hidden items-center md:flex">
+            <a
+              href={brand.whatsappUrl || "#"}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center rounded-full bg-[#D42B2B] px-6 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#B01F1F] hover:shadow-lg hover:shadow-red-500/25"
+            >
+              Order Now
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <nav className="mobile-bottom-nav md:hidden">
         <div className="mx-auto grid h-full max-w-md grid-cols-4 items-center px-4 text-center">
           {[
             { href: "/", label: "Home" },
@@ -76,6 +81,6 @@ export default async function SiteHeader() {
       >
         <span>💬</span> Chat
       </a>
-    </header>
+    </>
   );
 }
