@@ -5,6 +5,8 @@ const isGithubPages = process.env.GITHUB_ACTIONS === "true";
 const nextConfig: NextConfig = {
   output: isGithubPages ? "export" : undefined,
   trailingSlash: isGithubPages ? true : false,
+  basePath: isGithubPages ? "/BmkFoods" : undefined,
+  assetPrefix: isGithubPages ? "/BmkFoods" : undefined,
   images: {
     unoptimized: true,
   },
