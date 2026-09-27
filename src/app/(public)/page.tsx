@@ -34,22 +34,22 @@ export default async function HomePage() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_55%,rgba(255,210,130,0.26),transparent_24%),radial-gradient(circle_at_72%_22%,rgba(255,165,0,0.18),transparent_18%)]" />
         <div className="absolute -right-24 -top-24 h-[500px] w-[500px] rounded-full bg-[#F5A623]/15 blur-3xl" />
 
-        <div className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-12 px-6 py-24 lg:grid-cols-1 lg:px-8">
-          <div>
+        <div className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-8 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-1 lg:px-8 lg:py-24">
+          <div className="max-w-full sm:max-w-xl lg:max-w-3xl">
             <div className="gold-accent" />
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-[#F5A623]">Farm Fresh · Coimbatore</p>
-            <h1 className="display-xl mb-6 font-bold text-white">{hero.headline}</h1>
-            <p className="mb-10 max-w-lg text-lg leading-relaxed text-white/70">{hero.subheadline}</p>
-            <div className="flex flex-wrap gap-4">
+            <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#F5A623] sm:text-sm">Farm Fresh · Coimbatore</p>
+            <h1 className="display-xl mb-4 font-bold text-white sm:mb-6">{hero.headline}</h1>
+            <p className="mb-8 max-w-lg text-sm leading-relaxed text-white/70 sm:mb-10 sm:text-lg">{hero.subheadline}</p>
+            <div className="flex flex-wrap gap-3 sm:gap-4">
               <a
                 href={withBasePath("/products")}
-                className="inline-flex items-center justify-center rounded-full bg-[#D42B2B] px-8 py-4 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#B01F1F] hover:shadow-xl hover:shadow-red-600/30"
+                className="inline-flex items-center justify-center rounded-full bg-[#D42B2B] px-5 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#B01F1F] hover:shadow-xl hover:shadow-red-600/30 sm:px-8 sm:py-4"
               >
                 {hero.primaryCtaLabel}
               </a>
               <a
                 href={withBasePath("/contact")}
-                className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-8 py-4 text-sm font-semibold text-white backdrop-blur transition-all duration-300 hover:bg-white/20"
+                className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur transition-all duration-300 hover:bg-white/20 sm:px-8 sm:py-4"
               >
                 {hero.secondaryCtaLabel}
               </a>
