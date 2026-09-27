@@ -2,7 +2,6 @@ import { getBrand, getHomeHero, getFeaturedProducts } from "@/lib/site-data";
 
 export default async function HomePage() {
   const [brand, hero, featuredProducts] = await Promise.all([getBrand(), getHomeHero(), getFeaturedProducts()]);
-  const basePath = "/BmkFoods";
 
   const stats = [
     { value: brand.yearsInBusiness, label: "Years of Trust" },
@@ -42,13 +41,13 @@ export default async function HomePage() {
             <p className="mb-10 max-w-lg text-lg leading-relaxed text-white/70">{hero.subheadline}</p>
             <div className="flex flex-wrap gap-4">
               <a
-                href={`${basePath}/products`}
+                href="/products"
                 className="inline-flex items-center justify-center rounded-full bg-[#D42B2B] px-8 py-4 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#B01F1F] hover:shadow-xl hover:shadow-red-600/30"
               >
                 {hero.primaryCtaLabel}
               </a>
               <a
-                href={`${basePath}/contact`}
+                href="/contact"
                 className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-8 py-4 text-sm font-semibold text-white backdrop-blur transition-all duration-300 hover:bg-white/20"
               >
                 {hero.secondaryCtaLabel}
@@ -85,7 +84,7 @@ export default async function HomePage() {
               <p className="mb-8 max-w-xl text-[#6B6B6B] leading-relaxed">
                 We believe fresh chicken should taste the way it was meant to — naturally raised, never frozen, and delivered with the care it deserves.
               </p>
-              <a href={`${basePath}/about`} className="inline-flex items-center gap-2 text-sm font-semibold text-[#D42B2B] transition-all duration-300 hover:gap-3">
+              <a href="/about" className="inline-flex items-center gap-2 text-sm font-semibold text-[#D42B2B] transition-all duration-300 hover:gap-3">
                 Our story <span aria-hidden="true">→</span>
               </a>
             </div>
@@ -112,7 +111,7 @@ export default async function HomePage() {
               <div className="gold-accent" />
               <h2 className="display-md font-bold text-[#2C2C2C]">Fresh Cuts Daily</h2>
             </div>
-            <a href={`${basePath}/products`} className="text-sm font-semibold text-[#D42B2B] transition-colors duration-300 hover:underline">
+            <a href="/products" className="text-sm font-semibold text-[#D42B2B] transition-colors duration-300 hover:underline">
               View all →
             </a>
           </div>
