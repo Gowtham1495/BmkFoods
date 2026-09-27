@@ -4,13 +4,14 @@ import { getBrand } from "@/lib/site-data";
 
 export default async function SiteHeader() {
   const brand = await getBrand();
+  const basePath = "/BmkFoods";
 
   return (
     <header className="sticky top-0 z-50 overflow-visible bg-white/95 backdrop-blur-md shadow-[0_1px_0_0_rgba(0,0,0,0.06)]">
       <div className="relative mx-auto flex h-[54px] max-w-7xl items-center justify-between gap-4 px-6 lg:px-8">
         <Link href="/" className="pointer-events-auto absolute left-[-180px] top-0 z-20 flex items-center overflow-visible sm:left-[-210px]">
           <img
-            src="/final-bmk-logo.png"
+            src={`${basePath}/final-bmk-logo.png`}
             alt={brand.brandName}
             className="h-[110px] w-auto max-w-[360px] object-contain object-left sm:h-[125px] sm:max-w-[390px]"
           />
