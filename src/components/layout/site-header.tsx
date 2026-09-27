@@ -9,15 +9,15 @@ export default async function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 overflow-visible bg-white/95 backdrop-blur-md shadow-[0_1px_0_0_rgba(0,0,0,0.06)]">
       <div className="relative mx-auto flex h-[54px] max-w-7xl items-center justify-between gap-3 px-3 sm:px-6 lg:px-8">
-        <Link href="/" className="pointer-events-auto relative z-20 flex items-center overflow-visible md:absolute md:left-3 md:top-0 lg:left-6">
+        <Link href="/" className="pointer-events-auto relative z-20 flex items-center justify-center overflow-visible md:absolute md:left-3 md:top-0 lg:left-6">
           <img
             src={withBasePath("/final-bmk-logo.png")}
             alt={brand.brandName}
-            className="h-[58px] w-auto max-w-[150px] object-contain object-left sm:h-[72px] sm:max-w-[190px] md:h-[110px] md:max-w-[360px] lg:h-[125px] lg:max-w-[390px]"
+            className="h-[52px] w-auto max-w-[150px] object-contain object-left sm:h-[62px] sm:max-w-[180px] md:h-[110px] md:max-w-[360px] lg:h-[125px] lg:max-w-[390px]"
           />
         </Link>
 
-        <nav className="hidden items-center gap-7 md:ml-[170px] md:flex lg:ml-[220px]">
+        <nav className="hidden items-center gap-7 md:ml-[150px] md:flex lg:ml-[220px]">
           {[
             { href: "/", label: "Home" },
             { href: "/about", label: "About Us" },

@@ -38,18 +38,18 @@ export default async function HomePage() {
           <div className="max-w-full sm:max-w-xl lg:max-w-3xl">
             <div className="gold-accent" />
             <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#F5A623] sm:text-sm">Farm Fresh · Coimbatore</p>
-            <h1 className="display-xl mb-4 font-bold text-white sm:mb-6">{hero.headline}</h1>
-            <p className="mb-8 max-w-lg text-sm leading-relaxed text-white/70 sm:mb-10 sm:text-lg">{hero.subheadline}</p>
+            <h1 className="display-xl mb-4 max-w-[12ch] font-bold text-white sm:mb-6 sm:max-w-none">{hero.headline}</h1>
+            <p className="mb-8 max-w-[28rem] text-sm leading-relaxed text-white/70 sm:mb-10 sm:text-lg">{hero.subheadline}</p>
             <div className="flex flex-wrap gap-3 sm:gap-4">
               <a
                 href={withBasePath("/products")}
-                className="inline-flex items-center justify-center rounded-full bg-[#D42B2B] px-5 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#B01F1F] hover:shadow-xl hover:shadow-red-600/30 sm:px-8 sm:py-4"
+                className="inline-flex min-w-[150px] flex-1 items-center justify-center rounded-full bg-[#D42B2B] px-5 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#B01F1F] hover:shadow-xl hover:shadow-red-600/30 sm:min-w-0 sm:flex-none sm:px-8 sm:py-4"
               >
                 {hero.primaryCtaLabel}
               </a>
               <a
                 href={withBasePath("/contact")}
-                className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur transition-all duration-300 hover:bg-white/20 sm:px-8 sm:py-4"
+                className="inline-flex min-w-[150px] flex-1 items-center justify-center rounded-full border border-white/20 bg-white/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur transition-all duration-300 hover:bg-white/20 sm:min-w-0 sm:flex-none sm:px-8 sm:py-4"
               >
                 {hero.secondaryCtaLabel}
               </a>
