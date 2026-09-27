@@ -1,4 +1,4 @@
-# KalaiSuvadu — Static Architecture & Migration Plan
+# BMK Foods — Static Architecture & Migration Plan
 
 ## Context
 - **Business:** Wall mural and art studio website.

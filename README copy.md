@@ -1,6 +1,6 @@
-# KalaiSuvadu
+# BMK Foods
 
-KalaiSuvadu is a Next.js 15 App Router project for an art business website and admin panel.
+BMK Foods is a Next.js App Router project for a fresh chicken and farm-to-door brand website.
 
 ## Stack
 

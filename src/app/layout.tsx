@@ -20,10 +20,10 @@ const cormorantGaramond = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   title: {
-    default: "KalaiSuvadu",
-    template: "%s | KalaiSuvadu",
+    default: "BMK Foods",
+    template: "%s | BMK Foods",
   },
-  description: "KalaiSuvadu wall murals and painting studio.",
+  description: "Fresh chicken, farm-to-door delivery, and quality protein for homes and restaurants.",
 };
 
 export default function RootLayout({
