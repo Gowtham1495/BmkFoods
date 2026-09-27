@@ -1,0 +1,27 @@
+{
+  "title": "Traditional Sikku Kolam",
+  "description": "A vibrant and traditional Kolam giving the Living Room a devotional vibe",
+  "category": "INTERIOR",
+  "workType": "SOLO",
+  "status": "completed",
+  "location": "Coimbatore, India",
+  "completedAt": "2026-06-09",
+  "coverImage": "https://res.cloudinary.com/qzkrzwx5/image/upload/v1783822709/PXL_20260610_114430165_ifufml.jpg",
+  "isFeatured": true,
+  "isCoverProject": true,
+  "isPublished": true,
+  "media": [
+    {
+      "type": "image",
+      "url": "https://res.cloudinary.com/qzkrzwx5/image/upload/v1783822709/PXL_20260610_114430165_ifufml.jpg",
+      "alt": "Completed Kolam at Client Location"
+    },
+    {
+      "type": "instagram",
+      "url": "https://www.instagram.com/p/DZoS42wj68Z/?igsh=cGl0cHY3cmNtaDg0"
+    }
+  ],
+  "teamMembers": [
+    "thamizh-elakkiya"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Curry Cut",
+  "category": "CURRY",
+  "description": "Classic curry cut pieces, perfect for all Indian chicken curries.",
+  "weightOptions": "500g, 1kg",
+  "image": "",
+  "isAvailable": true,
+  "isBulkAvailable": true,
+  "isFeatured": true,
+  "sortOrder": 2
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Boneless Breast",
+  "category": "BONELESS",
+  "description": "Tender boneless breast pieces, ideal for grilling, frying, and salads.",
+  "weightOptions": "500g, 1kg",
+  "image": "",
+  "isAvailable": true,
+  "isBulkAvailable": true,
+  "isFeatured": true,
+  "sortOrder": 3
+}

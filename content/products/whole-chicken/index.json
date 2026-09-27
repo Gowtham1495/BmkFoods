@@ -1,0 +1,11 @@
+{
+  "name": "Whole Chicken",
+  "category": "WHOLE",
+  "description": "Fresh whole chicken, naturally raised with no hormones or antibiotics.",
+  "weightOptions": "1kg, 1.5kg, 2kg",
+  "image": "",
+  "isAvailable": true,
+  "isBulkAvailable": true,
+  "isFeatured": true,
+  "sortOrder": 1
+}

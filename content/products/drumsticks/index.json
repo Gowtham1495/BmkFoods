@@ -1,0 +1,11 @@
+{
+  "name": "Drumsticks",
+  "category": "SPECIAL",
+  "description": "Meaty drumsticks, great for tandoor, fry, or curry.",
+  "weightOptions": "500g, 1kg",
+  "image": "",
+  "isAvailable": true,
+  "isBulkAvailable": false,
+  "isFeatured": true,
+  "sortOrder": 4
+}
