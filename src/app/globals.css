@@ -144,6 +144,8 @@ img {
   justify-content: center;
   max-width: 100%;
   min-width: 0;
+  overflow: visible;
+  z-index: 30;
 }
 
 @media (min-width: 768px) {
@@ -158,12 +160,14 @@ img {
   }
 
   .mobile-header-logo {
-    position: relative !important;
-    left: auto !important;
-    top: auto !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
     width: 100% !important;
     justify-content: center !important;
-    padding-top: 0.25rem;
+    padding-top: 0 !important;
+    overflow: visible !important;
   }
 
   .mobile-bottom-nav {

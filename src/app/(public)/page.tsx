@@ -35,7 +35,7 @@ export default async function HomePage() {
         <div className="absolute -right-24 -top-24 h-[500px] w-[500px] rounded-full bg-[#F5A623]/15 blur-3xl" />
 
         <div className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-8 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-1 lg:px-8 lg:py-24">
-          <div className="max-w-full sm:max-w-xl lg:max-w-3xl">
+          <div className="mt-14 max-w-full sm:mt-0 sm:max-w-xl lg:max-w-3xl">
             <div className="gold-accent" />
             <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#F5A623] sm:text-sm">Farm Fresh · Coimbatore</p>
             <h1 className="display-xl mb-4 max-w-[12ch] font-bold text-white sm:mb-6 sm:max-w-none">{hero.headline}</h1>

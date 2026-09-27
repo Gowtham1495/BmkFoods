@@ -8,16 +8,16 @@ export default async function SiteHeader() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-[0_1px_0_0_rgba(0,0,0,0.06)]">
-        <div className="relative mx-auto flex h-[58px] max-w-7xl items-center justify-center px-3 sm:px-6 md:h-[54px] md:justify-between md:px-8">
+      <header className="sticky top-0 z-50 overflow-visible bg-white/95 backdrop-blur-md shadow-[0_1px_0_0_rgba(0,0,0,0.06)]">
+        <div className="relative mx-auto flex h-[58px] max-w-7xl items-center justify-center overflow-visible px-3 sm:px-6 md:h-[54px] md:justify-between md:px-8">
           <Link
             href="/"
-            className="mobile-header-logo pointer-events-auto relative z-20 flex items-center justify-center md:absolute md:left-3 md:top-0 md:justify-start lg:left-6"
+            className="mobile-header-logo pointer-events-auto relative z-30 flex items-center justify-center md:absolute md:left-3 md:top-0 md:justify-start lg:left-6"
           >
             <img
               src={withBasePath("/final-bmk-logo.png")}
               alt={brand.brandName}
-              className="h-[44px] w-auto max-w-[150px] object-contain opacity-100 sm:h-[52px] md:h-[110px] md:max-w-[360px] lg:h-[125px] lg:max-w-[390px]"
+              className="h-[110px] w-auto max-w-[220px] object-contain opacity-100 sm:h-[120px] md:h-[110px] md:max-w-[360px] lg:h-[125px] lg:max-w-[390px]"
             />
           </Link>
 
