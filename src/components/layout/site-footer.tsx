@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { getBrand } from "@/lib/site-data";
+import { withBasePath } from "@/lib/base-path";
 
 export default async function SiteFooter() {
   const brand = await getBrand();
@@ -11,7 +12,7 @@ export default async function SiteFooter() {
         <div>
           <div className="flex items-center gap-3">
             <div className="flex h-9 items-center justify-center rounded-full bg-[#2B1A1A] p-2">
-              <img src="/logo.png" alt="BMK Chicken" className="h-6 w-auto" />
+              <img src={withBasePath("/logo.png")} alt="BMK Chicken" className="h-6 w-auto" />
             </div>
             <div>
               <div className="text-lg font-black tracking-tight text-[#D42B2B]">BMK</div>

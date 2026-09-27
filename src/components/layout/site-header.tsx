@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { getBrand } from "@/lib/site-data";
+import { withBasePath } from "@/lib/base-path";
 
 export default async function SiteHeader() {
   const brand = await getBrand();
@@ -10,7 +11,7 @@ export default async function SiteHeader() {
       <div className="relative mx-auto flex h-[54px] max-w-7xl items-center justify-between gap-4 px-6 lg:px-8">
         <Link href="/" className="pointer-events-auto absolute left-[-180px] top-0 z-20 flex items-center overflow-visible sm:left-[-210px]">
           <img
-            src="/final-bmk-logo.png"
+            src={withBasePath("/final-bmk-logo.png")}
             alt={brand.brandName}
             className="h-[110px] w-auto max-w-[360px] object-contain object-left sm:h-[125px] sm:max-w-[390px]"
           />

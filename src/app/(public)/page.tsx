@@ -1,4 +1,5 @@
 import { getBrand, getHomeHero, getFeaturedProducts } from "@/lib/site-data";
+import { withBasePath } from "@/lib/base-path";
 
 export default async function HomePage() {
   const [brand, hero, featuredProducts] = await Promise.all([getBrand(), getHomeHero(), getFeaturedProducts()]);
@@ -41,13 +42,13 @@ export default async function HomePage() {
             <p className="mb-10 max-w-lg text-lg leading-relaxed text-white/70">{hero.subheadline}</p>
             <div className="flex flex-wrap gap-4">
               <a
-                href="/products"
+                href={withBasePath("/products")}
                 className="inline-flex items-center justify-center rounded-full bg-[#D42B2B] px-8 py-4 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#B01F1F] hover:shadow-xl hover:shadow-red-600/30"
               >
                 {hero.primaryCtaLabel}
               </a>
               <a
-                href="/contact"
+                href={withBasePath("/contact")}
                 className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-8 py-4 text-sm font-semibold text-white backdrop-blur transition-all duration-300 hover:bg-white/20"
               >
                 {hero.secondaryCtaLabel}
