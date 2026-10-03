@@ -1,5 +1,7 @@
 import { getBrand, getHomeHero, getFeaturedProducts } from "@/lib/site-data";
 import { withBasePath } from "@/lib/base-path";
+import ReviewCard from "@/components/public/review-card";
+import FeatureReveal from "@/components/public/feature-reveal";
 
 export default async function HomePage() {
   const [brand, hero, featuredProducts] = await Promise.all([getBrand(), getHomeHero(), getFeaturedProducts()]);
@@ -38,8 +40,13 @@ export default async function HomePage() {
           <div className="mt-14 max-w-full sm:mt-0 sm:max-w-xl lg:max-w-3xl">
             <div className="gold-accent" />
             <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#F5A623] sm:text-sm">Farm Fresh · Coimbatore</p>
-            <h1 className="display-xl mb-4 max-w-[12ch] font-bold text-white sm:mb-6 sm:max-w-none">{hero.headline}</h1>
-            <p className="mb-8 max-w-[28rem] text-sm leading-relaxed text-white/70 sm:mb-10 sm:text-lg">{hero.subheadline}</p>
+           <h1 className="display-xl mb-4 max-w-[12ch] font-bold text-white animate-hero-right animation-delay-200 sm:mb-6 sm:max-w-none">
+  {hero.headline}
+</h1>
+
+<p className="mb-8 max-w-[28rem] text-sm leading-relaxed text-white/70 animate-hero-right animation-delay-300 sm:mb-10 sm:text-lg">
+  {hero.subheadline}
+</p>
             <div className="flex flex-wrap gap-3 sm:gap-4">
               <a
                 href={withBasePath("/products")}
@@ -91,14 +98,14 @@ export default async function HomePage() {
             </div>
 
             <div className="flex flex-col gap-4">
-              {features.map((feature) => (
-                <div key={feature.title} className="flex items-start gap-4 rounded-2xl bg-white p-5 shadow-[0_10px_30px_rgba(0,0,0,0.03)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_36px_rgba(0,0,0,0.06)]">
+             {features.map((feature, index) => (
+              <FeatureReveal key={feature.title} delay={index * 180}>
                   <span className="mt-0.5 text-2xl">{feature.icon}</span>
                   <div>
                     <h3 className="mb-1 font-semibold text-[#2C2C2C]">{feature.title}</h3>
                     <p className="text-sm leading-6 text-[#6B6B6B]">{feature.desc}</p>
                   </div>
-                </div>
+              </FeatureReveal>
               ))}
             </div>
           </div>
@@ -170,6 +177,70 @@ export default async function HomePage() {
         </div>
       </section>
 
+      <section className="bg-[#FFF8F0] py-20">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mb-10 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <div className="gold-accent" />
+              <p className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-[#D42B2B]">From our customers</p>
+              <h2 className="display-md font-bold text-[#2C2C2C]">Our Customers Review</h2>
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="text-right">
+                <p className="font-bold text-[#2C2C2C]">4.7 <span className="text-[#F5A623]" aria-label="out of 5 stars">★</span></p>
+                <p className="text-xs text-[#6B6B6B]">51 Google reviews</p>
+              </div>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=BMK%20Chicken%2C%20Thimmampalayam%20Pudur%2C%20Karamadai&query_place_id=ChIJh8WtDY7vqDsRjE1lhnl1NbA"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center rounded-full border border-[#D42B2B]/20 px-4 py-2 text-sm font-semibold text-[#D42B2B] transition-colors hover:bg-white"
+              >
+                Read all reviews <span className="ml-2" aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-3">
+            {[
+              {
+                quote: "The chicken is always fresh, clean, and of excellent quality.The shop is well-maintained, and the owner is friendly and provides great customer service.Prices are reasonable, and the service is quick, perfect place to buy fresh chicken.",
+                author: "Arun S Deechu",
+                detail: "Local Guide · 5-star review",
+                rating: 5,
+              },
+              {
+                quote: "Even though this shop is 10 km away from my location and there are many chicken shops nearby, I still prefer to buy chicken here regularly because it is always fresh and tender. The quality consistently earns compliments from my family and guests. Moreover, the prices are quite reasonable compared to other places. Highly recommended for anyone looking for fresh, high-quality chicken at an affordable price.👍",
+                author: "SANKARALINGAM ARUMUGAM",
+                detail: "5-star review",
+                rating: 5,
+              },
+              {
+                quote: "Fresh chicken and good service. The quality was nice and the price was reasonable. Happy with the purchase",
+                author: "ashna jerry",
+                detail: "4-star review",
+                rating: 4,
+              },
+            ].map((review, index) => (
+              <ReviewCard key={review.author} delay={index * 180}>
+                <div className="mb-4 flex items-center gap-1" aria-label={`${review.rating} out of 5 stars`}>
+                  {Array.from({ length: 5 }, (_, starIndex) => (
+                    <span key={starIndex} className={starIndex < review.rating ? "text-[#F5A623]" : "text-[#D9D9D9]"} aria-hidden="true">
+                      ★
+                    </span>
+                  ))}
+                </div>
+                <blockquote className="mb-6 flex-1 text-sm leading-7 text-[#424242]">“{review.quote}”</blockquote>
+                <figcaption className="border-t border-[#F0E8E0] pt-4">
+                  <p className="font-semibold text-[#2C2C2C]">{review.author}</p>
+                  <p className="mt-1 text-xs text-[#6B6B6B]">{review.detail}</p>
+                </figcaption>
+              </ReviewCard>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="bg-cream-gradient py-20">
         <div className="mx-auto max-w-4xl px-6 text-center lg:px-8">
           <div className="relative overflow-hidden rounded-[32px] bg-red-gradient p-12 shadow-2xl shadow-red-900/20 lg:p-16">
@@ -205,3 +276,4 @@ export default async function HomePage() {
     </div>
   );
 }
+
