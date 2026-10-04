@@ -301,3 +301,25 @@ img {
   background: rgba(180, 83, 9, 0.2);
 }
 
+@keyframes card-flip {
+  0% {
+    opacity: 0;
+    transform: perspective(800px) rotateY(-90deg);
+  }
+
+  60% {
+    opacity: 1;
+    transform: perspective(800px) rotateY(15deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: perspective(800px) rotateY(0deg);
+  }
+}
+
+.animate-card-flip {
+  animation: card-flip 1s ease-out forwards;
+  transform-origin: center;
+  backface-visibility: hidden;
+}

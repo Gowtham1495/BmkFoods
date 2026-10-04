@@ -30,9 +30,15 @@ export default async function AboutPage() {
 
       <section className="bg-white py-20">
         <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-2 lg:px-8">
-          <div className="card-soft flex min-h-[320px] items-center justify-center bg-[#FFF8F0] p-8">
-            <div className="flex h-44 w-44 items-center justify-center rounded-[28px] bg-white text-6xl shadow-[0_18px_50px_rgba(0,0,0,0.08)]">🐔</div>
-          </div>
+         <div className="card-soft flex min-h-[320px] items-center justify-center bg-[#FFF8F0] p-8">
+  <div className="animate-card-flip flex h-44 w-44 items-center justify-center overflow-hidden rounded-[28px] bg-white shadow-[0_18px_50px_rgba(0,0,0,0.08)]">
+    <img
+      src="/contact-person.png"
+      alt="Contact person"
+      className="h-full w-full object-cover"
+    />
+  </div>
+</div>
 
           <div className="flex flex-col justify-center">
             <div className="gold-accent" />
