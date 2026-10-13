@@ -3,14 +3,14 @@
 :root {
   --background: #FFFFFF;
   --foreground: #2C2C2C;
-  --bmk-red: #D42B2B;
-  --bmk-red-dark: #A81F1F;
-  --bmk-red-light: #F5E5E5;
-  --bmk-gold: #F5A623;
-  --bmk-gold-light: #FEF6E7;
+  --bmk-red: #114b33;
+  --bmk-red-dark: #0B3323;
+  --bmk-red-light: #E3ECE1;
+  --bmk-gold: #E3A857;
+  --bmk-gold-light: #FBF3E7;
   --bmk-cream: #FFF8F0;
   --bmk-border: #F0E8E0;
-  --bmk-muted: #6B6B6B;
+  --bmk-muted: #1F2937;
   --bmk-charcoal: #2C2C2C;
   --bmk-surface: #F9F9F9;
 }
@@ -53,7 +53,7 @@
 }
 
 .bg-red-gradient {
-  background: linear-gradient(135deg, #C01F1F 0%, #D42B2B 50%, #E53535 100%);
+  background: linear-gradient(135deg, #0B3323 0%, #114B33 50%, #1A6647 100%);
 }
 
 .bg-cream-gradient {
@@ -64,7 +64,7 @@
   display: inline-block;
   width: 40px;
   height: 3px;
-  background: #F5A623;
+  background: #E3A857;
   border-radius: 2px;
   margin-bottom: 16px;
 }

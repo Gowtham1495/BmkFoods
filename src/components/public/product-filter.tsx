@@ -36,7 +36,7 @@ export default function ProductFilter({ products, whatsappUrl }: { products: Pro
               key={c.key}
               onClick={() => setFilter(c.key)}
               className={`flex-shrink-0 rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-300 ${
-                filter === c.key ? "bg-[#D42B2B] text-white shadow-lg shadow-red-500/20" : "bg-[#F5F5F5] text-[#6B6B6B] hover:bg-[#F0E8E0]"
+                filter === c.key ? "bg-[#114b33] text-white shadow-lg shadow-green-900/20" : "bg-[#F5F5F5] text-[#1F2937] hover:bg-[#F0E8E0]"
               }`}
             >
               {c.label}
@@ -49,7 +49,7 @@ export default function ProductFilter({ products, whatsappUrl }: { products: Pro
         {filtered.map((p) => (
           <div
             key={p.id}
-            className={`card-soft group overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${p.isAvailable === false ? "opacity-60" : ""}`}
+            className="card-soft group overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
           >
             <div className="aspect-square overflow-hidden bg-[#FFF0E8]">
               {p.imageUrl ? (
@@ -60,18 +60,18 @@ export default function ProductFilter({ products, whatsappUrl }: { products: Pro
             </div>
 
             <div className="p-5">
-              <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#D42B2B]">{p.category}</span>
+              <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#114b33]">{p.category}</span>
               <h3 className="mt-2 text-lg font-bold text-[#2C2C2C]">{p.name}</h3>
-              {p.weightOptions ? <p className="mt-2 text-sm text-[#6B6B6B]">Available: {p.weightOptions}</p> : null}
+              {p.weightOptions ? <p className="mt-2 text-sm text-[#1F2937]">Available: {p.weightOptions}</p> : null}
               <a
                 href={whatsappUrl || "#"}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#D42B2B] px-4 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#B01F1F] hover:shadow-lg hover:shadow-red-500/20"
+                className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#114b33] px-4 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#0b3323] hover:shadow-lg hover:shadow-green-900/20"
               >
                 <span>💬</span> Enquire on WhatsApp
               </a>
-              {p.isAvailable === false ? <div className="mt-3 text-xs uppercase tracking-[0.15em] text-[#6B6B6B]">Currently Unavailable</div> : null}
+              {p.isAvailable === false ? <div className="mt-3 text-xs font-semibold uppercase tracking-[0.15em] text-[#1F2937]">Currently Unavailable</div> : null}
             </div>
           </div>
         ))}

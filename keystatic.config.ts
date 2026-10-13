@@ -57,6 +57,8 @@ export default config({
         deliveryAreas: fields.text({ label: "Delivery Areas Covered" }),
         fssaiNumber: fields.text({ label: "FSSAI License Number" }),
         instagram: fields.text({ label: "Instagram URL" }),
+        youtube: fields.text({ label: "YouTube URL" }),
+        linkedin: fields.text({ label: "LinkedIn URL" }),
         facebook: fields.text({ label: "Facebook URL" }),
         yearsInBusiness: fields.text({ label: "Years in Business", defaultValue: "10+" }),
         farmPartners: fields.text({ label: "Farm Partners Count", defaultValue: "500+" }),

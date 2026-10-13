@@ -29,6 +29,8 @@ export interface BrandSetting {
   deliveryAreas: string | null;
   fssaiNumber: string | null;
   instagramUrl: string | null;
+  youtubeUrl: string | null;
+  linkedinUrl: string | null;
   facebookUrl: string | null;
   yearsInBusiness: string;
   farmPartners: string;
@@ -66,6 +68,8 @@ export async function getBrand(): Promise<BrandSetting> {
     deliveryAreas: data?.deliveryAreas || null,
     fssaiNumber: data?.fssaiNumber || null,
     instagramUrl: data?.instagram || null,
+    youtubeUrl: data?.youtube || null,
+    linkedinUrl: data?.linkedin || null,
     facebookUrl: data?.facebook || null,
     yearsInBusiness: data?.yearsInBusiness || "10+",
     farmPartners: data?.farmPartners || "500+",

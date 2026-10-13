@@ -1,23 +1,35 @@
-import React from "react";
-import Link from "next/link";
-import { getBrand } from "@/lib/site-data";
-import { withBasePath } from "@/lib/base-path";
+"use client";
 
-export default async function SiteHeader() {
-  const brand = await getBrand();
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { withBasePath } from "@/lib/base-path";
+import type { BrandSetting } from "@/lib/site-data";
+
+const DEFAULT_LOGO_URL = "https://res.cloudinary.com/ccgttwby/image/upload/f_auto,q_auto/BMK_FOODS_2";
+
+export default function SiteHeader({ brand }: { brand: BrandSetting }) {
+  const pathname = usePathname();
+
+  const logoMap: Record<string, string> = {
+    "/homes/poultry-farm": withBasePath("/final-bmk-logo.png"),
+    "/homes/oil-mill": withBasePath("/oil-mill-logo.png"),
+    "/homes/organic-fruits": withBasePath("/organic-fruits-logo.png"),
+  };
+
+  const logoUrl = logoMap[pathname] || DEFAULT_LOGO_URL;
 
   return (
     <>
-      <header className="sticky top-0 z-50 overflow-visible bg-white/95 backdrop-blur-md shadow-[0_1px_0_0_rgba(0,0,0,0.06)]">
-        <div className="relative mx-auto flex h-[58px] max-w-7xl items-center justify-center overflow-visible px-3 sm:px-6 md:h-[54px] md:justify-between md:px-8">
+      <header className="sticky top-0 z-50 overflow-hidden bg-white/95 backdrop-blur-md shadow-[0_1px_0_0_rgba(0,0,0,0.06)]">
+        <div className="relative mx-auto flex h-[72px] max-w-7xl items-center justify-center overflow-hidden px-3 sm:px-6 md:h-[78px] md:justify-between md:px-8">
           <Link
             href="/"
             className="mobile-header-logo pointer-events-auto relative z-30 flex items-center justify-center md:absolute md:left-3 md:top-0 md:justify-start lg:left-6"
           >
             <img
-              src={withBasePath("/final-bmk-logo.png")}
+              src={logoUrl}
               alt={brand.brandName}
-              className="h-[110px] w-auto max-w-[220px] object-contain opacity-100 sm:h-[120px] md:h-[110px] md:max-w-[360px] lg:h-[125px] lg:max-w-[390px]"
+              className="h-[52px] w-auto max-w-[200px] object-contain opacity-100 sm:h-[56px] md:h-[62px] md:max-w-[240px] lg:h-[68px] lg:max-w-[270px]"
             />
           </Link>
 
@@ -31,23 +43,12 @@ export default async function SiteHeader() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="border-b-2 border-transparent pb-0.5 text-sm font-medium text-[#2C2C2C] transition-colors duration-300 hover:border-[#D42B2B] hover:text-[#D42B2B]"
+                className="border-b-2 border-transparent pb-0.5 text-[15px] font-semibold text-[#114b33] transition-colors duration-300 hover:border-[#114b33] hover:text-[#114b33]"
               >
                 {link.label}
               </Link>
             ))}
           </nav>
-
-          <div className="hidden items-center md:flex">
-            <a
-              href={brand.whatsappUrl || "#"}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center justify-center rounded-full bg-[#D42B2B] px-6 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#B01F1F] hover:shadow-lg hover:shadow-red-500/25"
-            >
-              Order Now
-            </a>
-          </div>
         </div>
       </header>
 
@@ -62,10 +63,10 @@ export default async function SiteHeader() {
             <Link
               key={item.href}
               href={item.href}
-              className="relative flex h-full items-center justify-center text-[10px] font-semibold uppercase tracking-[0.12em] text-[#6B6B6B]"
+              className="relative flex h-full items-center justify-center text-[10px] font-semibold uppercase tracking-[0.12em] text-[#1F2937]"
             >
               {item.href === "/" ? (
-                <span className="absolute -top-2 left-1/2 h-2 w-2 -translate-x-1/2 rounded-full bg-[#D42B2B]" />
+                <span className="absolute -top-2 left-1/2 h-2 w-2 -translate-x-1/2 rounded-full bg-[#114b33]" />
               ) : null}
               <span>{item.label}</span>
             </Link>
@@ -77,7 +78,7 @@ export default async function SiteHeader() {
         href={brand.whatsappUrl || "#"}
         target="_blank"
         rel="noreferrer"
-        className="fixed bottom-24 right-6 z-50 hidden items-center gap-2 rounded-full bg-[#25D366] px-4 py-3 text-sm font-semibold text-white shadow-lg md:flex"
+        className="fixed bottom-24 right-6 z-50 hidden items-center gap-2 rounded-full bg-[#114b33] px-4 py-3 text-sm font-semibold text-white shadow-lg md:flex"
       >
         <span>💬</span> Chat
       </a>

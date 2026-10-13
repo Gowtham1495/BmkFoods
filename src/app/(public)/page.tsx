@@ -1,7 +1,8 @@
 import { getBrand, getHomeHero, getFeaturedProducts } from "@/lib/site-data";
 import { withBasePath } from "@/lib/base-path";
-import ReviewCard from "@/components/public/review-card";
 import FeatureReveal from "@/components/public/feature-reveal";
+import HomeSpotlightSection from "@/components/public/home-spotlight";
+import { AnimatedStatValue } from "@/components/public/animated-stat-card";
 
 export default async function HomePage() {
   const [brand, hero, featuredProducts] = await Promise.all([getBrand(), getHomeHero(), getFeaturedProducts()]);
@@ -21,78 +22,105 @@ export default async function HomePage() {
   ];
 
   return (
-    <div>
-      <section className="relative flex min-h-[92vh] items-center overflow-hidden bg-[#f2d9b3]">
-        {hero.heroImage ? (
-          <img src={hero.heroImage} alt="" className="absolute inset-0 h-full w-full object-cover opacity-75 saturate-125 brightness-110" />
-        ) : (
-          <div className="absolute inset-0 flex items-center justify-center border border-dashed border-white/20 bg-[radial-gradient(circle_at_center,_rgba(255,207,128,0.65),_rgba(106,50,34,0.88)_68%)]">
-            <div className="rounded-full border border-white/15 bg-white/10 px-5 py-2 text-center text-xs font-semibold uppercase tracking-[0.2em] text-white/80 backdrop-blur-sm">
-              Upload Cloudinary hero image in Keystatic
+    <div className="bg-[linear-gradient(180deg,#FFFFFF_0%,#F4F9F4_38%,#E4F0E4_72%,#FFFFFF_100%)]">
+      <section className="relative overflow-hidden pt-20 pb-8 sm:pt-24 sm:pb-10 lg:pt-28 lg:pb-12">
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="overflow-hidden rounded-[34px] border border-[#F0E8E0] bg-[linear-gradient(135deg,#FFFDFB_0%,#F7F0E9_100%)] p-5 shadow-[0_30px_80px_rgba(44,44,44,0.08)] sm:p-7 lg:p-8">
+            <div className="grid items-center gap-8 lg:grid-cols-[1.15fr_0.85fr]">
+              <div className="min-w-0">
+                <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#F3D8B2] bg-[#FFF9F2] px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.22em] text-[#114b33]">
+                  BMK Foods • Coimbatore
+                </div>
+
+                <h1 className="max-w-[14ch] text-4xl font-black leading-[0.96] tracking-[-0.06em] text-[#2C2C2C] sm:text-5xl lg:text-[4.2rem]">
+                  Fresh food, grown with care.
+                </h1>
+
+                <p className="mt-5 max-w-xl text-base leading-8 text-[#1F2937] sm:text-lg">
+                  From farm to family table, we bring trusted sourcing, quality checks, and dependable daily essentials for homes, kitchens, and hospitality businesses.
+                </p>
+
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <a
+                    href={withBasePath("/products")}
+                    className="inline-flex items-center justify-center rounded-full bg-[#114b33] px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#0c3826] hover:shadow-xl hover:shadow-green-900/20"
+                  >
+                    Explore products
+                  </a>
+                  <a
+                    href={withBasePath("/contact")}
+                    className="inline-flex items-center justify-center rounded-full border border-[#114b33]/20 bg-white px-6 py-3 text-sm font-semibold text-[#114b33] transition-all duration-300 hover:bg-[#eff5f1]"
+                  >
+                    Talk to us
+                  </a>
+                </div>
+              </div>
+
+              <div className="min-w-0">
+                <div className="rounded-[30px] bg-[#114b33] p-4 shadow-[0_30px_80px_rgba(43,27,20,0.22)] sm:p-5">
+                  <div className="rounded-[24px] border border-white/10 bg-[linear-gradient(180deg,#1a6647_0%,#114b33_55%,#0b3323_100%)] p-5 sm:p-6">
+                    <div className="mb-5 flex items-center justify-between gap-4">
+                      <div className="min-w-0">
+                        <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-[#E3A857]">Our promise</p>
+                        <h2 className="mt-2 text-2xl font-bold text-white">Quality in every step</h2>
+                      </div>
+                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#E3A857] text-lg font-bold text-[#2B1B14]">★</div>
+                    </div>
+
+                    <div className="space-y-3">
+                      {[
+                        "Responsible sourcing from trusted farms and partners.",
+                        "Clean processing and quality checks at every stage.",
+                        "Fresh delivery for homes, restaurants and everyday kitchens.",
+                      ].map((item) => (
+                        <div key={item} className="flex items-start gap-3 rounded-2xl border border-white/8 bg-white/5 p-3">
+                          <div className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#E3A857]/20 text-sm font-bold text-[#E3A857]">✓</div>
+                          <p className="text-sm leading-6 text-[#F5F0EA]">{item}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        )}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#2c180f]/70 via-[#4a2a1b]/45 to-[#f7d9a2]/15" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_55%,rgba(255,210,130,0.26),transparent_24%),radial-gradient(circle_at_72%_22%,rgba(255,165,0,0.18),transparent_18%)]" />
-        <div className="absolute -right-24 -top-24 h-[500px] w-[500px] rounded-full bg-[#F5A623]/15 blur-3xl" />
-
-        <div className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-8 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-1 lg:px-8 lg:py-24">
-          <div className="mt-14 max-w-full sm:mt-0 sm:max-w-xl lg:max-w-3xl">
-            <div className="gold-accent" />
-            <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#F5A623] sm:text-sm">Farm Fresh · Coimbatore</p>
-           <h1 className="display-xl mb-4 max-w-[12ch] font-bold text-white animate-hero-right animation-delay-200 sm:mb-6 sm:max-w-none">
-  {hero.headline}
-</h1>
-
-<p className="mb-8 max-w-[28rem] text-sm leading-relaxed text-white/70 animate-hero-right animation-delay-300 sm:mb-10 sm:text-lg">
-  {hero.subheadline}
-</p>
-            <div className="flex flex-wrap gap-3 sm:gap-4">
-              <a
-                href={withBasePath("/products")}
-                className="inline-flex min-w-[150px] flex-1 items-center justify-center rounded-full bg-[#D42B2B] px-5 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#B01F1F] hover:shadow-xl hover:shadow-red-600/30 sm:min-w-0 sm:flex-none sm:px-8 sm:py-4"
-              >
-                {hero.primaryCtaLabel}
-              </a>
-              <a
-                href={withBasePath("/contact")}
-                className="inline-flex min-w-[150px] flex-1 items-center justify-center rounded-full border border-white/20 bg-white/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur transition-all duration-300 hover:bg-white/20 sm:min-w-0 sm:flex-none sm:px-8 sm:py-4"
-              >
-                {hero.secondaryCtaLabel}
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 text-white/40">
-          <span className="text-[10px] uppercase tracking-[0.3em]">Scroll</span>
-          <div className="h-8 w-px bg-white/20 animate-pulse" />
         </div>
       </section>
 
-      <section className="bg-white py-12">
-        <div className="mx-auto max-w-5xl px-6 lg:px-8">
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+      <section className="pb-6 pt-4 pb-25 sm:pt-6">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4">
             {stats.map((s) => (
-              <div key={s.label} className="stat-card card-soft p-4 text-center md:p-6">
-                <div className="stat-card-value mb-1 font-bold text-[#D42B2B]">{s.value}</div>
-                <div className="stat-card-label uppercase text-[#6B6B6B]">{s.label}</div>
+              <div
+                key={s.label}
+                className="stat-card card-soft flex min-h-[130px] w-full min-w-0 flex-col items-center justify-center rounded-[24px] border border-[#F2E7DE] bg-white p-4 text-center shadow-[0_18px_35px_rgba(30,22,18,0.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_22px_45px_rgba(30,22,18,0.08)] md:min-h-[140px] md:p-6"
+              >
+                <div className="stat-card-value mb-2 font-black tracking-[-0.05em] text-[#114b33] tabular-nums">
+                  <AnimatedStatValue
+                    value={s.value}
+                    suffix={typeof s.value === "number" ? "+" : ""}
+                    className="text-3xl sm:text-[2.1rem]"
+                  />
+                </div>
+                <div className="stat-card-label max-w-[15ch] text-[10px] font-bold uppercase tracking-[0.18em] text-[#1F2937] sm:max-w-none sm:text-[11px]">
+                  {s.label}
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-cream-gradient py-20">
+      <section className="pb-20 pt-6">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid items-center gap-16 lg:grid-cols-2">
             <div>
               <div className="gold-accent" />
               <h2 className="display-lg mb-6 font-bold text-[#2C2C2C]">The BMK Difference</h2>
-              <p className="mb-8 max-w-xl text-[#6B6B6B] leading-relaxed">
+              <p className="mb-8 max-w-xl text-[#1F2937] leading-relaxed">
                 We believe fresh chicken should taste the way it was meant to — naturally raised, never frozen, and delivered with the care it deserves.
               </p>
-              <a href="/about" className="inline-flex items-center gap-2 text-sm font-semibold text-[#D42B2B] transition-all duration-300 hover:gap-3">
+              <a href="/about" className="inline-flex items-center gap-2 text-sm font-semibold text-[#114b33] transition-all duration-300 hover:gap-3">
                 Our story <span aria-hidden="true">→</span>
               </a>
             </div>
@@ -103,7 +131,7 @@ export default async function HomePage() {
                   <span className="mt-0.5 text-2xl">{feature.icon}</span>
                   <div>
                     <h3 className="mb-1 font-semibold text-[#2C2C2C]">{feature.title}</h3>
-                    <p className="text-sm leading-6 text-[#6B6B6B]">{feature.desc}</p>
+                    <p className="text-sm leading-6 text-[#1F2937]">{feature.desc}</p>
                   </div>
               </FeatureReveal>
               ))}
@@ -112,144 +140,17 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="overflow-hidden bg-white py-20">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mb-10 flex items-end justify-between gap-4">
-            <div>
-              <div className="gold-accent" />
-              <h2 className="display-md font-bold text-[#2C2C2C]">Fresh Cuts Daily</h2>
-            </div>
-            <a href="/products" className="text-sm font-semibold text-[#D42B2B] transition-colors duration-300 hover:underline">
-              View all →
-            </a>
-          </div>
+      <HomeSpotlightSection />
 
-          <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide md:grid md:grid-cols-4 md:overflow-visible">
-            {featuredProducts.map((product) => (
-              <div key={product.id} className="group min-w-[220px] flex-shrink-0 overflow-hidden rounded-2xl bg-[#FFF8F0] transition-all duration-300 hover:-translate-y-1 hover:shadow-xl md:min-w-0">
-                <div className="aspect-square overflow-hidden bg-[#FFE8D6]">
-                  {product.imageUrl ? (
-                    <img src={product.imageUrl} alt={product.name} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                  ) : (
-                    <div className="flex h-full items-center justify-center text-5xl">🍗</div>
-                  )}
-                </div>
-                <div className="p-4">
-                  <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#D42B2B]">{product.category}</span>
-                  <h3 className="mt-2 font-bold text-[#2C2C2C]">{product.name}</h3>
-                  {product.weightOptions ? <p className="mt-1 text-xs text-[#6B6B6B]">{product.weightOptions}</p> : null}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="relative overflow-hidden bg-[#1C1C1C] py-20 text-white">
-        <div className="absolute left-1/4 top-0 h-96 w-96 rounded-full bg-[#D42B2B]/10 blur-3xl" />
-        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mb-14 text-center">
-            <div className="gold-accent mx-auto" />
-            <h2 className="display-md font-bold text-white">Farm to Plate</h2>
-            <p className="mx-auto mt-3 max-w-md text-sm text-white/50">Every step controlled. Every standard met.</p>
-          </div>
-
-          <div className="relative">
-            <div className="absolute left-0 right-0 top-10 hidden h-px bg-gradient-to-r from-transparent via-[#F5A623]/40 to-transparent md:block" />
-            <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-4">
-              {[
-                { step: "01", icon: "🌾", title: "Our Farms", desc: "Hygienic, ventilated farms with natural feed only." },
-                { step: "02", icon: "🏭", title: "Processing", desc: "FSSAI certified facility and disciplined handling." },
-                { step: "03", icon: "❄️", title: "Cold Chain", desc: "Temperature maintained from farm to van to your door." },
-                { step: "04", icon: "🏠", title: "Your Plate", desc: "Fresh, nutritious protein ready for home or business." },
-              ].map((item) => (
-                <div key={item.step} className="relative text-center">
-                  <div className="relative z-10 mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-3xl">
-                    {item.icon}
-                  </div>
-                  <p className="mb-2 text-xs font-bold uppercase tracking-[0.2em] text-[#F5A623]">{item.step}</p>
-                  <h3 className="mb-2 font-bold text-white">{item.title}</h3>
-                  <p className="text-xs leading-relaxed text-white/40">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-[#FFF8F0] py-20">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mb-10 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <div className="gold-accent" />
-              <p className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-[#D42B2B]">From our customers</p>
-              <h2 className="display-md font-bold text-[#2C2C2C]">Our Customers Review</h2>
-            </div>
-            <div className="flex items-center gap-3">
-              <div className="text-right">
-                <p className="font-bold text-[#2C2C2C]">4.7 <span className="text-[#F5A623]" aria-label="out of 5 stars">★</span></p>
-                <p className="text-xs text-[#6B6B6B]">51 Google reviews</p>
-              </div>
-              <a
-                href="https://www.google.com/maps/search/?api=1&query=BMK%20Chicken%2C%20Thimmampalayam%20Pudur%2C%20Karamadai&query_place_id=ChIJh8WtDY7vqDsRjE1lhnl1NbA"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center rounded-full border border-[#D42B2B]/20 px-4 py-2 text-sm font-semibold text-[#D42B2B] transition-colors hover:bg-white"
-              >
-                Read all reviews <span className="ml-2" aria-hidden="true">↗</span>
-              </a>
-            </div>
-          </div>
-
-          <div className="grid gap-4 md:grid-cols-3">
-            {[
-              {
-                quote: "The chicken is always fresh, clean, and of excellent quality.The shop is well-maintained, and the owner is friendly and provides great customer service.Prices are reasonable, and the service is quick, perfect place to buy fresh chicken.",
-                author: "Arun S Deechu",
-                detail: "Local Guide · 5-star review",
-                rating: 5,
-              },
-              {
-                quote: "Even though this shop is 10 km away from my location and there are many chicken shops nearby, I still prefer to buy chicken here regularly because it is always fresh and tender. The quality consistently earns compliments from my family and guests. Moreover, the prices are quite reasonable compared to other places. Highly recommended for anyone looking for fresh, high-quality chicken at an affordable price.👍",
-                author: "SANKARALINGAM ARUMUGAM",
-                detail: "5-star review",
-                rating: 5,
-              },
-              {
-                quote: "Fresh chicken and good service. The quality was nice and the price was reasonable. Happy with the purchase",
-                author: "ashna jerry",
-                detail: "4-star review",
-                rating: 4,
-              },
-            ].map((review, index) => (
-              <ReviewCard key={review.author} delay={index * 180}>
-                <div className="mb-4 flex items-center gap-1" aria-label={`${review.rating} out of 5 stars`}>
-                  {Array.from({ length: 5 }, (_, starIndex) => (
-                    <span key={starIndex} className={starIndex < review.rating ? "text-[#F5A623]" : "text-[#D9D9D9]"} aria-hidden="true">
-                      ★
-                    </span>
-                  ))}
-                </div>
-                <blockquote className="mb-6 flex-1 text-sm leading-7 text-[#424242]">“{review.quote}”</blockquote>
-                <figcaption className="border-t border-[#F0E8E0] pt-4">
-                  <p className="font-semibold text-[#2C2C2C]">{review.author}</p>
-                  <p className="mt-1 text-xs text-[#6B6B6B]">{review.detail}</p>
-                </figcaption>
-              </ReviewCard>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-cream-gradient py-20">
+      <section className="py-10">
         <div className="mx-auto max-w-4xl px-6 text-center lg:px-8">
-          <div className="relative overflow-hidden rounded-[32px] bg-red-gradient p-12 shadow-2xl shadow-red-900/20 lg:p-16">
+          <div className="relative overflow-hidden rounded-[32px] bg-[#114b33] p-12 shadow-2xl shadow-red-900/20 lg:p-16">
             <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full bg-white/5" />
             <div className="absolute -bottom-12 -left-10 h-48 w-48 rounded-full bg-white/5" />
             <div className="relative">
               <div className="gold-accent mx-auto" />
               <h2 className="display-md mb-4 font-bold text-white">Fresh chicken for your home or restaurant?</h2>
-              <p className="mx-auto mb-10 max-w-md text-white/70">
+              <p className="mx-auto mb-10 max-w-md text-white/85">
                 We supply to homes, hotels, restaurants and catering businesses across Coimbatore.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
@@ -257,18 +158,18 @@ export default async function HomePage() {
                   href={brand.whatsappUrl || "#"}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-8 py-4 text-sm font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#1EA855] hover:shadow-xl hover:shadow-green-600/30"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#E3A857] px-8 py-4 text-sm font-bold text-[#114b33] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#EBC17C] hover:shadow-xl hover:shadow-black/20"
                 >
                   <span>💬</span> WhatsApp Us
                 </a>
                 <a
                   href={`tel:${brand.phone}`}
-                  className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-sm font-bold text-[#D42B2B] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#FFF8F0]"
+                  className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-sm font-bold text-[#114b33] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#eff5f1]"
                 >
                   📞 Call Us
                 </a>
               </div>
-              {brand.phone ? <p className="mt-6 text-xs text-white/40">{brand.phone} · {brand.operatingHours}</p> : null}
+              {brand.phone ? <p className="mt-6 text-xs text-white/80">{brand.phone} · {brand.operatingHours}</p> : null}
             </div>
           </div>
         </div>

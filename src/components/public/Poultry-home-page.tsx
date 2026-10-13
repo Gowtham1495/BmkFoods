@@ -1,0 +1,156 @@
+import Link from "next/link";
+import { withBasePath } from "@/lib/base-path";
+import ReviewCard from "@/components/public/review-card";
+
+type PoultryHomePageProps = {
+  title: string;
+  description: string;
+  intro: string;
+  highlight: string;
+  icon: string;
+  backLink: string;
+  backLabel: string;
+};
+
+export default function PoultryHomePage({
+  title,
+  description,
+  intro,
+  highlight,
+  icon,
+  backLink,
+  backLabel,
+}: PoultryHomePageProps) {
+  return (
+    <div>
+      <section className="relative overflow-hidden bg-cream-gradient py-20 text-white sm:py-28">
+        <div className="absolute -right-24 -top-24 h-80 w-80 rounded-full bg-[#E3A857]/20 blur-3xl" />
+        <div className="absolute -bottom-24 left-1/4 h-80 w-80 rounded-full bg-[#114b33]/15 blur-3xl" />
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+          <Link href={withBasePath(backLink)} className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-[#114b33] hover:underline">
+            ← {backLabel}
+          </Link>
+          <div className="max-w-3xl">
+            <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 text-3xl backdrop-blur-sm">{icon}</div>
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-black">BMK Food Homes</p>
+            <h1 className="display-lg font-bold text-black">{title}</h1>
+            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-[#1F2937]">{description}</p>
+          </div>
+        </div>
+      </section>
+
+ <section className="relative overflow-hidden bg-[#1C1C1C] py-20 text-white">
+        <div className="absolute left-1/4 top-0 h-96 w-96 rounded-full bg-[#114b33]/10 blur-3xl" />
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mb-14 text-center">
+            <div className="gold-accent mx-auto" />
+            <h2 className="display-md font-bold text-white">Farm to Plate</h2>
+            <p className="mx-auto mt-3 max-w-md text-sm text-white/90">Every step controlled. Every standard met.</p>
+          </div>
+
+          <div className="relative">
+            <div className="absolute left-0 right-0 top-10 hidden h-px bg-gradient-to-r from-transparent via-[#E3A857]/60 to-transparent md:block" />
+            <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-4">
+              {[
+                { step: "01", icon: "🌾", title: "Our Farms", desc: "Hygienic, ventilated farms with natural feed only." },
+                { step: "02", icon: "🏭", title: "Processing", desc: "FSSAI certified facility and disciplined handling." },
+                { step: "03", icon: "❄️", title: "Cold Chain", desc: "Temperature maintained from farm to van to your door." },
+                { step: "04", icon: "🏠", title: "Your Plate", desc: "Fresh, nutritious protein ready for home or business." },
+              ].map((item) => (
+                <div key={item.step} className="relative text-center">
+                  <div className="relative z-10 mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-3xl">
+                    {item.icon}
+                  </div>
+                  <p className="mb-2 text-xs font-bold uppercase tracking-[0.2em] text-[#E3A857]">{item.step}</p>
+                  <h3 className="mb-2 font-bold text-white">{item.title}</h3>
+                  <p className="text-xs leading-relaxed text-white/90">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section className="bg-[#FFF8F0] py-16 sm:py-20">
+        <div className="mx-auto max-w-5xl px-6 lg:px-8">
+          <div className="card-soft overflow-hidden">
+            <div className="grid gap-0 md:grid-cols-2">
+              <div className="flex min-h-64 items-center justify-center bg-[#F5E5D0] p-10 text-7xl md:min-h-80">{icon}</div>
+              <div className="flex flex-col justify-center p-8 sm:p-12">
+                <div className="gold-accent" />
+                <h2 className="mb-4 text-2xl font-bold text-[#2C2C2C]">Freshness, quality, and care</h2>
+                <p className="text-base leading-7 text-[#1F2937]">{intro}</p>
+                <div className="mt-6 rounded-2xl bg-[#FBF3E7] p-4 text-sm font-semibold text-[#1F2937]">{highlight}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#FFF8F0] py-20">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mb-10 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <div className="gold-accent" />
+              <p className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-[#114b33]">From our customers</p>
+              <h2 className="display-md font-bold text-[#2C2C2C]">Our Customers Review</h2>
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="text-right">
+                <p className="font-bold text-[#2C2C2C]">4.7 <span className="text-[#DA8A2A]" aria-label="out of 5 stars">★</span></p>
+                <p className="text-xs text-[#1F2937]">51 Google reviews</p>
+              </div>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=BMK%20Chicken%2C%20Thimmampalayam%20Pudur%2C%20Karamadai&query_place_id=ChIJh8WtDY7vqDsRjE1lhnl1NbA"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center rounded-full border border-[#114b33]/20 px-4 py-2 text-sm font-semibold text-[#114b33] transition-colors hover:bg-white"
+              >
+                Read all reviews <span className="ml-2" aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-3">
+            {[
+              {
+                quote: "The chicken is always fresh, clean, and of excellent quality.The shop is well-maintained, and the owner is friendly and provides great customer service.Prices are reasonable, and the service is quick, perfect place to buy fresh chicken.",
+                author: "Arun S Deechu",
+                detail: "Local Guide · 5-star review",
+                rating: 5,
+              },
+              {
+                quote: "Even though this shop is 10 km away from my location and there are many chicken shops nearby, I still prefer to buy chicken here regularly because it is always fresh and tender. The quality consistently earns compliments from my family and guests. Moreover, the prices are quite reasonable compared to other places. Highly recommended for anyone looking for fresh, high-quality chicken at an affordable price.👍",
+                author: "SANKARALINGAM ARUMUGAM",
+                detail: "5-star review",
+                rating: 5,
+              },
+              {
+                quote: "Fresh chicken and good service. The quality was nice and the price was reasonable. Happy with the purchase",
+                author: "ashna jerry",
+                detail: "4-star review",
+                rating: 4,
+              },
+            ].map((review, index) => (
+              <ReviewCard key={review.author} delay={index * 180}>
+                <div className="mb-4 flex items-center gap-1" aria-label={`${review.rating} out of 5 stars`}>
+                  {Array.from({ length: 5 }, (_, starIndex) => (
+                    <span key={starIndex} className={starIndex < review.rating ? "text-[#DA8A2A]" : "text-[#6B7280]"} aria-hidden="true">
+                      ★
+                    </span>
+                  ))}
+                </div>
+                <blockquote className="mb-6 flex-1 text-sm leading-7 text-[#424242]">“{review.quote}”</blockquote>
+                <figcaption className="border-t border-[#F0E8E0] pt-4">
+                  <p className="font-semibold text-[#2C2C2C]">{review.author}</p>
+                  <p className="mt-1 text-xs text-[#1F2937]">{review.detail}</p>
+                </figcaption>
+              </ReviewCard>
+            ))}
+          </div>
+        </div>
+      </section>
+
+    </div>
+  );
+}
