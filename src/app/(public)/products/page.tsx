@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function ProductsPage() {
   return (
     <div className="bg-[linear-gradient(180deg,#FFFFFF_0%,#F4F9F4_38%,#E4F0E4_72%,#FFFFFF_100%)]">
@@ -45,13 +47,13 @@ export default function ProductsPage() {
                   <p className="mt-3 line-clamp-2 text-ellipsis text-sm leading-6 text-[#2D3748] sm:text-base">
                     {home.description}
                   </p>
-                  <a
+                  <Link
                     href={home.href}
                     className="mt-5 inline-flex items-center gap-2 self-start text-sm font-semibold text-[#114b33] transition-colors duration-300 hover:text-[#0b3323]"
                   >
                     <span>Read more</span>
                     <span aria-hidden="true">→</span>
-                  </a>
+                  </Link>
                 </div>
               </article>
             ))}

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { withBasePath } from "@/lib/base-path";
 import ReviewCard from "@/components/public/review-card";
 
 type OilMillHomePageProps = {
@@ -27,7 +26,7 @@ export default function OilMillHomePage({
         <div className="absolute -right-24 -top-24 h-80 w-80 rounded-full bg-[#E3A857]/20 blur-3xl" />
         <div className="absolute -bottom-24 left-1/4 h-80 w-80 rounded-full bg-[#114b33]/15 blur-3xl" />
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-          <Link href={withBasePath(backLink)} className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-[#114b33] hover:underline">
+          <Link href={backLink} className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-[#114b33] hover:underline">
             ← {backLabel}
           </Link>
           <div className="max-w-3xl">
