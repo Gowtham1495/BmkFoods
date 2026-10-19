@@ -23,69 +23,81 @@ export default async function HomePage() {
 
   return (
     <div className="bg-[linear-gradient(180deg,#FFFFFF_0%,#F4F9F4_38%,#E4F0E4_72%,#FFFFFF_100%)]">
-      <section className="relative overflow-hidden pt-20 pb-8 sm:pt-24 sm:pb-10 lg:pt-28 lg:pb-12">
-        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="overflow-hidden rounded-[34px] border border-[#F0E8E0] bg-[linear-gradient(135deg,#FFFDFB_0%,#F7F0E9_100%)] p-5 shadow-[0_30px_80px_rgba(44,44,44,0.08)] sm:p-7 lg:p-8">
-            <div className="grid items-center gap-8 lg:grid-cols-[1.15fr_0.85fr]">
-              <div className="min-w-0">
-                <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#F3D8B2] bg-[#FFF9F2] px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.22em] text-[#114b33]">
-                  BMK Foods • Coimbatore
-                </div>
+<section className="relative isolate overflow-hidden py-16 sm:py-20 lg:py-24">
+  {/* Pepper plantation background */}
+  <div
+    className="absolute inset-0 -z-20 bg-cover bg-center"
+    style={{
+      backgroundImage:
+        "url('https://res.cloudinary.com/ccgttwby/image/upload/f_auto,q_auto/Sunlit_Pepper_Plantation_Vista')",
+    }}
+  />
 
-                <h1 className="max-w-[14ch] text-4xl font-black leading-[0.96] tracking-[-0.06em] text-[#2C2C2C] sm:text-5xl lg:text-[4.2rem]">
-                  Fresh food, grown with care.
-                </h1>
+  {/* Blend the image with the content area */}
+  <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#092b1d]/80 via-[#f8f4ec]/85 to-[#f8f4ec]/65" />
 
-                <p className="mt-5 max-w-xl text-base leading-8 text-[#1F2937] sm:text-lg">
-                  From farm to family table, we bring trusted sourcing, quality checks, and dependable daily essentials for homes, kitchens, and hospitality businesses.
-                </p>
+  {/* Soft overlay for a polished look */}
+  <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white/10 via-transparent to-[#f8f4ec]/35" />
 
-                <div className="mt-8 flex flex-wrap gap-3">
-                  <a
-                    href={withBasePath("/products")}
-                    className="inline-flex items-center justify-center rounded-full bg-[#114b33] px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#0c3826] hover:shadow-xl hover:shadow-green-900/20"
-                  >
-                    Explore products
-                  </a>
-                  <a
-                    href={withBasePath("/contact")}
-                    className="inline-flex items-center justify-center rounded-full border border-[#114b33]/20 bg-white px-6 py-3 text-sm font-semibold text-[#114b33] transition-all duration-300 hover:bg-[#eff5f1]"
-                  >
-                    Talk to us
-                  </a>
-                </div>
-              </div>
+  <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+    <div className="overflow-hidden rounded-[34px] border border-white/60 bg-[#fffdfb]/85 p-5 shadow-[0_30px_80px_rgba(0,0,0,0.16)] backdrop-blur-sm sm:p-8 lg:p-12">
+      <div className="grid items-center gap-8 lg:grid-cols-[1.15fr_0.85fr]">
+        <div className="min-w-0">
+          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#114b33]/15 bg-[#114b33]/5 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.22em] text-[#114b33]">
+            <span className="h-2 w-2 rounded-full bg-[#114b33]" />
+            BMK Foods • Coimbatore
+          </div>
 
-              <div className="min-w-0">
-                <div className="rounded-[30px] bg-[#114b33] p-4 shadow-[0_30px_80px_rgba(43,27,20,0.22)] sm:p-5">
-                  <div className="rounded-[24px] border border-white/10 bg-[linear-gradient(180deg,#1a6647_0%,#114b33_55%,#0b3323_100%)] p-5 sm:p-6">
-                    <div className="mb-5 flex items-center justify-between gap-4">
-                      <div className="min-w-0">
-                        <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-[#E3A857]">Our promise</p>
-                        <h2 className="mt-2 text-2xl font-bold text-white">Quality in every step</h2>
-                      </div>
-                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#E3A857] text-lg font-bold text-[#2B1B14]">★</div>
-                    </div>
+          <h1 className="max-w-[14ch] text-4xl font-black leading-[0.98] tracking-[-0.06em] text-[#173b2b] sm:text-5xl lg:text-[4.2rem]">
+            Fresh food, grown with care.
+          </h1>
 
-                    <div className="space-y-3">
-                      {[
-                        "Responsible sourcing from trusted farms and partners.",
-                        "Clean processing and quality checks at every stage.",
-                        "Fresh delivery for homes, restaurants and everyday kitchens.",
-                      ].map((item) => (
-                        <div key={item} className="flex items-start gap-3 rounded-2xl border border-white/8 bg-white/5 p-3">
-                          <div className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#E3A857]/20 text-sm font-bold text-[#E3A857]">✓</div>
-                          <p className="text-sm leading-6 text-[#F5F0EA]">{item}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <p className="mt-5 max-w-xl text-base leading-8 text-[#35483d] sm:text-lg">
+            From farm to family table, we bring trusted sourcing, quality
+            checks, and dependable daily essentials for homes, kitchens,
+            and hospitality businesses.
+          </p>
+
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a
+              href={withBasePath("/products")}
+              className="inline-flex items-center justify-center rounded-full bg-[#114b33] px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-green-950/15 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#0c3826] hover:shadow-xl"
+            >
+              Explore products
+              <span className="ml-2" aria-hidden="true">→</span>
+            </a>
+
+            <a
+              href={withBasePath("/contact")}
+              className="inline-flex items-center justify-center rounded-full border border-[#114b33]/20 bg-white/90 px-6 py-3.5 text-sm font-semibold text-[#114b33] transition-all duration-300 hover:-translate-y-0.5 hover:bg-white"
+            >
+              Talk to us
+            </a>
           </div>
         </div>
-      </section>
+
+        {/* Decorative side panel */}
+        <div className="relative hidden min-h-[280px] items-center justify-center lg:flex">
+          <div className="absolute inset-4 rounded-[28px] border border-[#114b33]/10 bg-gradient-to-br from-white/50 to-[#dce8dc]/30" />
+
+          <div className="relative max-w-xs px-8 text-center">
+            <span className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full border border-[#114b33]/15 bg-white/75 text-3xl shadow-sm">
+              🌿
+            </span>
+            <p className="text-2xl font-bold leading-snug tracking-tight text-[#173b2b]">
+              From nature,
+              <br />
+              with care.
+            </p>
+            <p className="mt-3 text-sm leading-6 text-[#35483d]">
+              Thoughtfully sourced essentials for everyday living.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
       <section className="pb-6 pt-4 pb-25 sm:pt-6">
         <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">

@@ -8,22 +8,21 @@ export default async function SiteFooter() {
   return (
     <footer className="bg-[linear-gradient(135deg,#0B3323_0%,#114B33_55%,#0B3323_100%)] text-white">
       <div className="mx-auto grid max-w-7xl justify-items-center gap-8 px-6 py-12 text-center sm:grid-cols-2 md:justify-items-stretch md:text-left lg:grid-cols-4 lg:px-8">
-        <div>
-          <div className="flex items-center justify-center gap-3 md:justify-start">
-            <div className="flex h-9 items-center justify-center rounded-full bg-white p-2">
-              <img
-                src="https://res.cloudinary.com/ccgttwby/image/upload/f_auto,q_auto/BMK_FOODS_2"
-                alt="BMK Foods"
-                className="h-6 w-auto"
-              />
-            </div>
-            <div>
-              <div className="text-lg font-black tracking-tight text-[#ACC5A6]">BMK</div>
-              <div className="text-[10px] font-semibold tracking-[0.28em] text-white/80">Foods</div>
-            </div>
-          </div>
-          <p className="mx-auto mt-4 max-w-xs text-sm leading-6 text-white/90 md:mx-0">{brand.tagline}</p>
-        </div>
+        <div className="text-center">
+  <div className="flex items-center justify-center gap-3">
+    <div className="flex h-9 items-center justify-center rounded-full bg-white p-2">
+      <img
+        src="https://res.cloudinary.com/ccgttwby/image/upload/f_auto,q_auto/BMK_FOODS_2"
+        alt="BMK Foods"
+        className="h-6 w-auto"
+      />
+    </div>
+  </div>
+
+  <p className="mx-auto mt-4 max-w-xs text-sm leading-6 text-white/90">
+    {brand.tagline}
+  </p>
+</div>
 
         <div>
           <h4 className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-[#ACC5A6]">Quick Links</h4>
@@ -40,7 +39,6 @@ export default async function SiteFooter() {
           <ul className="space-y-3 text-sm text-white/90">
             <li>{brand.phone || "-"}</li>
             <li>{brand.email || "-"}</li>
-            <li>{brand.operatingHours || "-"}</li>
           </ul>
         </div>
 
@@ -97,13 +95,11 @@ export default async function SiteFooter() {
         </div>
       </div>
 
-      <div className="border-t border-white/10 bg-black/20">
-        <div className="mx-auto flex max-w-7xl flex-col items-center gap-2 px-6 pb-[calc(5rem+env(safe-area-inset-bottom)+1rem)] pt-4 text-center text-xs text-white/80 md:flex-row md:justify-between md:py-4 md:text-left lg:px-8">
-          <span>FSSAI: {brand.fssaiNumber || "-"}</span>
-          <span>© 2026 BMK Chicken. All rights reserved.</span>
-          <span>Powered by: Team Code Harbor</span>
-        </div>
-      </div>
+     <div className="border-t border-white/10 bg-black/20">
+  <div className="mx-auto flex max-w-7xl flex-col items-center gap-2 px-6 pb-[calc(5rem+env(safe-area-inset-bottom)+1rem)] pt-4 text-center text-xs text-white/80 md:py-4 lg:px-8">
+    <span>© 2026 BMK Chicken. All rights reserved.</span>
+  </div>
+</div>
     </footer>
   );
 }
